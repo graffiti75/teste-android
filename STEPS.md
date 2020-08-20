@@ -25,9 +25,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~8.1. Create `toolbar.xml`~~.  
 ~~9. Create `BindingAdapters` with `bindStatus` method.~~  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~9.1. Create enum class `EasyApiStatus`.~~  
-~~10. Create `HomeFragment.kt`, `HomeViewModel.kt` and `HomeViewModelFactory.kt`.~~  
+~~10. Create `HomeFragment.kt` and `HomeViewModel.kt`.~~  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~10.1 Create layout `fragment_home.xml`, using `ConstraintLayout`.~~  
-~~11. Create `ResultFragment.kt`, `ResultViewModel.kt` and `ResultViewModelFactory.kt`.~~  
+~~11. Create `ResultFragment.kt` and `ResultViewModel.kt`.~~  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~11.1 Create layout `fragment_result.xml`, using `ConstraintLayout`.~~  
 ~~12. Create `Navigation` path.~~  
 13. Update `AndroidManifest` with INTERNET permission.  
