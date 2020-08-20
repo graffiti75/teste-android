@@ -3,22 +3,22 @@
 ~~1. Understand the project specification.~~.  
 ~~2. Understand the project API.~~.  
 ~~3. Fork project from Github.~~.  
-~~4. Create STEPS.md.~~
-~~5. Update Gradle libraries imports on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.1. Apply plugin `kotlin-kapt` on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.2. Apply plugin `androidx.navigation.safeargs` on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.3. Apply classpath `android.arch.navigation:navigation-safe-args-gradle-plugin` on `build.gradle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.4. Add `dataBinding.enabled=true` on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.5. Add support for Java 8 on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.6. Update `minSdkVersion` to 16 on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.7. Add `Constraint Layout` on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.8. Add `ViewModel` and `LiveData` on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.9. Add `ViewModelScope for Coroutines` on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.10. Add `Navigation` on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.11. Add `Core with Ktx` on `app/build.gragle`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.11.1. This library is used to call `val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.11.2. It's import is `import androidx.core.net.toUri`.~~
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.12. Add `Retrofit` on `app/build.gragle`.~~
+~~4. Create STEPS.md.~~  
+~~5. Update Gradle libraries imports on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.1. Apply plugin `kotlin-kapt` on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.2. Apply plugin `androidx.navigation.safeargs` on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.3. Apply classpath `android.arch.navigation:navigation-safe-args-gradle-plugin` on `build.gradle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.4. Add `dataBinding.enabled=true` on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.5. Add support for Java 8 on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.6. Update `minSdkVersion` to 16 on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.7. Add `Constraint Layout` on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.8. Add `ViewModel` and `LiveData` on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.9. Add `ViewModelScope for Coroutines` on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.10. Add `Navigation` on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.11. Add `Core with Ktx` on `app/build.gragle`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.11.1. This library is used to call `val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.11.2. It's import is `import androidx.core.net.toUri`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.12. Add `Retrofit` on `app/build.gragle`.~~  
 6. Create Gradle libraries versions in tag "ext" of `build.gradle`.  
 7. Create packages `home` and `result`.  
 8. Update files `res/values/styles.xml` and `res/values/colors.xml`.  
