@@ -19,7 +19,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.11.1. This library is used to call `val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()`.~~  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.11.2. It's import is `import androidx.core.net.toUri`.~~  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.12. Add `Retrofit` on `app/build.gragle`.~~  
-6. Create Gradle libraries versions in tag "ext" of `build.gradle`.  
+~~6. Create Gradle libraries versions in tag "ext" of `build.gradle`.~~  
 7. Create packages `home` and `result`.  
 8. Update files `res/values/styles.xml` and `res/values/colors.xml`.  
 9. Create `BindingAdapter` with `bindStatus` method.  
