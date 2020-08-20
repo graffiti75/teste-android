@@ -25,19 +25,20 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~8.1. Create `toolbar.xml`~~.  
 ~~9. Create `BindingAdapters` with `bindStatus` method.~~  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~9.1. Create enum class `EasyApiStatus`.~~  
-10. Create `HomeActivity.kt`, `HomeViewModel.kt` and `HomeFragment.kt`.  
-11. Create `ResultActivity.kt`, `ResultViewModel.kt` and `ResultFragment.kt`.  
-12. Create layouts for `fragment_home.xml` and `result_home.xml`, both using `ConstraintLayout`.  
-13. Create `Navigation` path.  
-14. Update `AndroidManifest` with INTERNET permission.  
-15. Create package `network` for the app.  
-16. Create `EasynvestService.kt` on app.  
-17. Create images on `drawable` folder.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17.1. File `loading_img.xml`.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17.2. File `ic_connection_error.xml`.  
-18. Test app on smaller devices.  
-19. Create `Unit Tests` with `JUnit`.  
-20. Create `Instrumented Tests` with `Espresso`.  
+~~10. Create `HomeFragment.kt`, `HomeViewModel.kt` and `HomeViewModelFactory.kt`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~10.1 Create layout `fragment_home.xml`, using `ConstraintLayout`.~~  
+~~11. Create `ResultFragment.kt`, `ResultViewModel.kt` and `ResultViewModelFactory.kt`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~11.1 Create layout `fragment_result.xml`, using `ConstraintLayout`.~~  
+~~12. Create `Navigation` path.~~  
+13. Update `AndroidManifest` with INTERNET permission.  
+14. Create package `network` for the app.  
+15. Create `EasynvestService.kt` on app.  
+16. Create images on `drawable` folder.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16.1. File `loading_img.xml`.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16.2. File `ic_connection_error.xml`.  
+17. Test app on smaller devices.  
+18. Create `Unit Tests` with `JUnit`.  
+19. Create `Instrumented Tests` with `Espresso`.  
 
 ## Implementation Details
 
