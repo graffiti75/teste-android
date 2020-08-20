@@ -22,7 +22,7 @@
 ~~6. Create Gradle libraries versions in tag "ext" of `build.gradle`.~~  
 ~~7. Create packages `home` and `result`.~~  
 ~~8. Update files `res/values/styles.xml` and `res/values/colors.xml`.~~  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~8.1. Create `toolbar.xml`.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~8.1. Create `toolbar.xml`~~.  
 9. Create `BindingAdapter` with `bindStatus` method.  
 10. Create `HomeActivity.kt`, `HomeViewModel.kt` and `HomeFragment.kt`.  
 11. Create `ResultActivity.kt`, `ResultViewModel.kt` and `ResultFragment.kt`.  
