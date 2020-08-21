@@ -30,15 +30,16 @@
 ~~11. Create `ResultFragment.kt` and `ResultViewModel.kt`.~~  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~11.1 Create layout `fragment_result.xml`, using `ConstraintLayout`.~~  
 ~~12. Create `Navigation` path.~~  
-13. Update `AndroidManifest` with INTERNET permission.  
-14. Create package `network` for the app.  
-15. Create `EasynvestService.kt` on app.  
-16. Create images on `drawable` folder.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16.1. File `loading_img.xml`.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16.2. File `ic_connection_error.xml`.  
-17. Test app on smaller devices.  
-18. Create `Unit Tests` with `JUnit`.  
-19. Create `Instrumented Tests` with `Espresso`.  
+~~13. Update `AndroidManifest` with INTERNET and ACCESS_NETWORK_STATE permissions.~~  
+14. Update layouts `fragment_home.xml` and `fragment_result.xml` with all fields from API.  
+15. Create package `network` for the app.  
+16. Create `EasynvestService.kt` on app.  
+17. Create images on `drawable` folder.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17.1. File `loading_img.xml`.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17.2. File `ic_connection_error.xml`.  
+18. Test app on smaller devices.  
+19. Create `Unit Tests` with `JUnit`.  
+20. Create `Instrumented Tests` with `Espresso`.  
 
 ## Implementation Details
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="br.cericatto.easynvest.home.HomeViewModel" />
@@ -13,13 +14,94 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="br.cericatto.easynvest.MainActivity">
+
+        <include
+            android:id="@+id/toolbar__home"
+            layout="@layout/toolbar" />
+
+        <!-- How Much To Apply -->
+
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/how_much_to_apply__label"
+            style="@style/LabelTextView"
+            android:text="Quanto você gostaria de aplicar? *"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar__home" />
+
+        <EditText
+            android:id="@+id/how_much_to_apply"
+            style="@style/EntryEditText"
+            android:hint="R$"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply__label" />
+
+        <View
+            android:id="@+id/how_much_to_apply__separator"
+            style="@style/ViewSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply" />
+
+        <!-- Investment Maturity Date -->
+
+        <TextView
+            android:id="@+id/investment_maturity_date__label"
+            style="@style/LabelTextView"
+            android:text="Qual a data de vencimento do investimento? *"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply" />
+
+        <EditText
+            android:id="@+id/investment_maturity_date__edit_text"
+            style="@style/EntryEditText"
+            android:hint="dia/mês/ano"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__label" />
+
+        <View
+            android:id="@+id/investment_maturity_date__separator"
+            style="@style/ViewSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__edit_text" />
+
+        <!-- CDI -->
+
+        <TextView
+            android:id="@+id/cdi__label"
+            style="@style/LabelTextView"
+            android:text="Qual o percentual do CDI do investimento? *"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__separator" />
+
+        <EditText
+            android:id="@+id/cdi__edit_text"
+            style="@style/EntryEditText"
+            android:hint="100%"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
+
+        <View
+            android:id="@+id/cdi__separator"
+            style="@style/ViewSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cdi__edit_text" />
+
+        <!-- Button -->
+
+        <Button
+            android:id="@+id/simulate__button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.response}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border_round_ripple_grey__grey_background"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="Simular"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cdi__separator" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
