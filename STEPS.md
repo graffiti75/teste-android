@@ -31,7 +31,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~11.1 Create layout `fragment_result.xml`, using `ConstraintLayout`.~~  
 ~~12. Create `Navigation` path.~~  
 ~~13. Update `AndroidManifest` with INTERNET and ACCESS_NETWORK_STATE permissions.~~  
-14. Update layouts `fragment_home.xml` and `fragment_result.xml` with all fields from API.  
+~~14. Update layouts `fragment_home.xml` and `fragment_result.xml` with all fields from API.~~  
 15. Create package `network` for the app.  
 16. Create `EasynvestService.kt` on app.  
 17. Create images on `drawable` folder.  
