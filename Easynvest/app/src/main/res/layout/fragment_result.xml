@@ -251,7 +251,6 @@
             <Button
                 android:id="@+id/simulate_again__button"
                 style="@style/Style_Button"
-                android:layout_marginTop="0dp"
                 android:background="@drawable/border_round_ripple_teal__teal_background"
                 android:gravity="center"
                 android:text="Simular novamente" />
