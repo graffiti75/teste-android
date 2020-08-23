@@ -8,18 +8,28 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="br.cericatto.easynvest.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/fragment_home__label"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_showResult"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
             app:destination="@id/resultFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/resultFragment"
         android:name="br.cericatto.easynvest.result.ResultFragment"
-        android:label="fragment_result"
+        android:label="@string/fragment_result__label"
         tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_restart"
+            app:destination="@+id/homeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
-
 </navigation>

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import br.cericatto.easynvest.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -29,6 +30,9 @@ class HomeFragment : Fragment() {
 
         // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
+        binding.simulateButton.setOnClickListener {
+            this.findNavController().navigate(HomeFragmentDirections.actionShowResult())
+        }
 
         return binding.root
     }

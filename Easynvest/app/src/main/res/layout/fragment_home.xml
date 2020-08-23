@@ -14,10 +14,6 @@
         android:layout_height="match_parent"
         tools:context="br.cericatto.easynvest.MainActivity">
 
-        <include
-            android:id="@+id/toolbar__home"
-            layout="@layout/toolbar" />
-
         <!-- How Much To Apply -->
 
         <TextView
@@ -25,7 +21,7 @@
             style="@style/Home_LabelTextView"
             android:text="Quanto você gostaria de aplicar? *"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar__home" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/how_much_to_apply"

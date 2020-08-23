@@ -12,29 +12,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <include
-                android:id="@+id/toolbar__result"
-                layout="@layout/toolbar" />
-
             <!--=============== FIRST HEADER ===============-->
 
             <TextView
                 android:id="@+id/simulation_result__label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:text="Resultado da simulação"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar__result" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/simulation_result__value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
                 android:text="R$ 1.088,69"
                 android:textColor="@color/black"
@@ -47,7 +42,6 @@
                 android:id="@+id/total_earned__value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
                 android:text="Rendimento total de R$ 88,69"
                 android:textSize="18sp"
@@ -146,7 +140,7 @@
             <TextView
                 android:id="@+id/date__label"
                 style="@style/Result_LabelTextView"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
                 android:text="Data de resgate"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/net_value__label" />
@@ -154,7 +148,7 @@
             <TextView
                 android:id="@+id/date__value"
                 style="@style/Result_ValueTextView"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
                 android:text="27/10/2018"
                 app:layout_constraintStart_toEndOf="@+id/date__label"
                 app:layout_constraintTop_toBottomOf="@+id/net_value__label" />
