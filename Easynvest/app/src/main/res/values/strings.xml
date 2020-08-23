@@ -3,4 +3,6 @@
 
     <string name="fragment_home__label">Easynvest</string>
     <string name="fragment_result__label">Easynvest CDI</string>
+
+    <string name="invalid_date">Favor digitar uma data válida!</string>
 </resources>

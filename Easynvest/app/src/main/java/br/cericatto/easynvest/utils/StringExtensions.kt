@@ -19,7 +19,7 @@ fun Context.showToast(message: String) {
 
 fun String.twoDecimals() : String {
     return when (this.length) {
-        1 -> this + "0"
+        1 -> "0$this"
         2 -> this
         else -> this.substring(0, 2)
     }

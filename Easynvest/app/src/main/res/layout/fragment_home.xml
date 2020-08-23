@@ -41,6 +41,7 @@
                     android:id="@+id/how_much_to_apply"
                     style="@style/Home_EntryEditText"
                     android:hint="R$"
+                    android:inputType="numberDecimal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply__label" />
 
@@ -59,11 +60,20 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply" />
 
-                <EditText
+                <TextView
                     android:id="@+id/investment_maturity_date__edit_text"
-                    style="@style/Home_EntryEditText"
-                    android:hint="dia/mês/ano"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:gravity="center_horizontal"
+                    android:text="dia/mês/ano"
+                    android:textColor="@color/grey_400"
+                    android:textSize="40sp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__label" />
 
                 <View
@@ -85,6 +95,7 @@
                     android:id="@+id/cdi__edit_text"
                     style="@style/Home_EntryEditText"
                     android:hint="100%"
+                    android:inputType="numberDecimal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
 
