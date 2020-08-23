@@ -4,5 +4,7 @@
     <string name="fragment_home__label">Easynvest</string>
     <string name="fragment_result__label">Easynvest CDI</string>
 
+    <string name="no_network">Internet fora do ar. Favor tentar novamente mais tarde.</string>
+    <string name="invalid_fields">Favor preencher os campos de forma válida.</string>
     <string name="invalid_date">Favor digitar uma data válida!</string>
 </resources>

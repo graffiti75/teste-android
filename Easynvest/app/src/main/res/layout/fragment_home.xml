@@ -9,120 +9,134 @@
             type="br.cericatto.easynvest.home.HomeViewModel" />
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <!--=============== FIRST CONTAINER ===============-->
-
-        <ScrollView
-            android:id="@+id/first_container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingBottom="10dp"
-            tools:context=".ResultFragment">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <!-- How Much To Apply -->
-
-                <TextView
-                    android:id="@+id/how_much_to_apply__label"
-                    style="@style/Home_LabelTextView"
-                    android:text="Quanto você gostaria de aplicar? *"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/how_much_to_apply"
-                    style="@style/Home_EntryEditText"
-                    android:hint="R$"
-                    android:inputType="numberDecimal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply__label" />
-
-                <View
-                    android:id="@+id/how_much_to_apply__separator"
-                    style="@style/Home_ViewSeparator"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply" />
-
-                <!-- Investment Maturity Date -->
-
-                <TextView
-                    android:id="@+id/investment_maturity_date__label"
-                    style="@style/Home_LabelTextView"
-                    android:text="Qual a data de vencimento do investimento? *"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply" />
-
-                <TextView
-                    android:id="@+id/investment_maturity_date__edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@null"
-                    android:gravity="center_horizontal"
-                    android:text="dia/mês/ano"
-                    android:textColor="@color/grey_400"
-                    android:textSize="40sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__label" />
-
-                <View
-                    android:id="@+id/investment_maturity_date__separator"
-                    style="@style/Home_ViewSeparator"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__edit_text" />
-
-                <!-- CDI -->
-
-                <TextView
-                    android:id="@+id/cdi__label"
-                    style="@style/Home_LabelTextView"
-                    android:text="Qual o percentual do CDI do investimento? *"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__separator" />
-
-                <EditText
-                    android:id="@+id/cdi__edit_text"
-                    style="@style/Home_EntryEditText"
-                    android:hint="100%"
-                    android:inputType="numberDecimal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
-
-                <View
-                    android:id="@+id/cdi__separator"
-                    style="@style/Home_ViewSeparator"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cdi__edit_text" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-
-        <!--=============== SECOND CONTAINER ===============-->
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/second_container"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:gravity="center"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/simulate__button"
-                style="@style/Style_Button"
-                android:background="@drawable/border_round_ripple_grey__grey_background"
-                android:text="Simular"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cdi__separator" />
+            <!--=============== FIRST CONTAINER ===============-->
+
+            <ScrollView
+                android:id="@+id/first_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingBottom="10dp"
+                tools:context=".ResultFragment">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- How Much To Apply -->
+
+                    <TextView
+                        android:id="@+id/how_much_to_apply__label"
+                        style="@style/Home_LabelTextView"
+                        android:text="Quanto você gostaria de aplicar? *"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/how_much_to_apply"
+                        style="@style/Home_EntryEditText"
+                        android:hint="R$"
+                        android:inputType="numberDecimal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply__label" />
+
+                    <View
+                        android:id="@+id/how_much_to_apply__separator"
+                        style="@style/Home_ViewSeparator"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply" />
+
+                    <!-- Investment Maturity Date -->
+
+                    <TextView
+                        android:id="@+id/investment_maturity_date__label"
+                        style="@style/Home_LabelTextView"
+                        android:text="Qual a data de vencimento do investimento? *"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply" />
+
+                    <TextView
+                        android:id="@+id/investment_maturity_date__value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@null"
+                        android:gravity="center_horizontal"
+                        android:text="dia/mês/ano"
+                        android:textColor="@color/grey_400"
+                        android:textSize="40sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__label" />
+
+                    <View
+                        android:id="@+id/investment_maturity_date__separator"
+                        style="@style/Home_ViewSeparator"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__value" />
+
+                    <!-- CDI -->
+
+                    <TextView
+                        android:id="@+id/cdi__label"
+                        style="@style/Home_LabelTextView"
+                        android:text="Qual o percentual do CDI do investimento? *"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__separator" />
+
+                    <EditText
+                        android:id="@+id/cdi__edit_text"
+                        style="@style/Home_EntryEditText"
+                        android:hint="100%"
+                        android:inputType="numberDecimal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
+
+                    <View
+                        android:id="@+id/cdi__separator"
+                        style="@style/Home_ViewSeparator"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cdi__edit_text" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+            <!--=============== SECOND CONTAINER ===============-->
+
+            <LinearLayout
+                android:id="@+id/second_container"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/simulate__button"
+                    style="@style/Style_Button"
+                    app:easyEnabled="@{viewModel.simulateButtonVisible}"
+                    android:background="@drawable/border_round_ripple_grey__grey_background"
+                    android:text="Simular"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cdi__separator" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
+        <!--=============== STATUS ===============-->
+
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:easyApiStatus="@{viewModel.status}" />
+    </FrameLayout>
 </layout>

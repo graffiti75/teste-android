@@ -25,6 +25,11 @@ fun String.twoDecimals() : String {
     }
 }
 
+fun String.formatMaturityDate() : String {
+    var parts = this.split("/")
+    return "${parts[2]}-${parts[1]}-${parts[0]}"
+}
+
 fun String.formatTicketValue() : String {
     var text = this
     if (text.contains(",")) text = text.replace(",", ".")

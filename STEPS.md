@@ -32,11 +32,11 @@
 ~~12. Create `Navigation` path.~~  
 ~~13. Update `AndroidManifest` with INTERNET and ACCESS_NETWORK_STATE permissions.~~  
 ~~14. Update layouts `fragment_home.xml` and `fragment_result.xml` with all fields from API.~~  
-15. Create package `network` for the app.  
-16. Create `EasynvestService.kt` on app.  
-17. Create images on `drawable` folder.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17.1. File `loading_img.xml`.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17.2. File `ic_connection_error.xml`.  
+~~15. Create package `network` for the app.~~  
+~~16. Create `EasyApiService.kt` on app.~~  
+~~17. Create images on `drawable` folder.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~17.1. File `loading_animation.xml`.~~  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~17.2. File `ic_connection_error.xml`.~~  
 18. Test app on smaller devices.  
 19. Create `Unit Tests` with `JUnit`.  
 20. Create `Instrumented Tests` with `Espresso`.  

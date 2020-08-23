@@ -11,16 +11,15 @@ import androidx.navigation.fragment.findNavController
 import br.cericatto.easynvest.databinding.FragmentResultBinding
 
 class ResultFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        @Suppress("UNUSED_VARIABLE")
-        val application = requireNotNull(activity).application
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
         val binding = FragmentResultBinding.inflate(inflater)
         binding.lifecycleOwner = this
+
+        val easyProperty = ResultFragmentArgs.fromBundle(arguments!!).selectedProperty
         binding.simulateAgainButton.setOnClickListener {
             this.findNavController().navigate(ResultFragmentDirections.actionRestart())
         }
+
         setHasOptionsMenu(true)
         onBackPressed()
 

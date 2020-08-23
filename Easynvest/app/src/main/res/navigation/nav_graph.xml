@@ -9,14 +9,14 @@
         android:id="@+id/homeFragment"
         android:name="br.cericatto.easynvest.home.HomeFragment"
         android:label="@string/fragment_home__label"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_showResult"
+            app:destination="@id/resultFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"
-            app:destination="@id/resultFragment" />
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
 
     <fragment
@@ -24,6 +24,9 @@
         android:name="br.cericatto.easynvest.result.ResultFragment"
         android:label="@string/fragment_result__label"
         tools:layout="@layout/fragment_result">
+        <argument
+            android:name="selectedProperty"
+            app:argType="br.cericatto.easynvest.network.EasyProperty" />
         <action
             android:id="@+id/action_restart"
             app:destination="@+id/homeFragment"
