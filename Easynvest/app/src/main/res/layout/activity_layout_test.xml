@@ -14,8 +14,8 @@
             android:id="@+id/first_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="10dp">
+            android:background="@color/blue_300"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/simulation_result__label"
@@ -24,7 +24,10 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:text="Resultado da simulação"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/simulation_result__value"
@@ -33,7 +36,10 @@
                 android:gravity="center_horizontal"
                 android:text="R$ 1.088,69"
                 android:textColor="@color/black"
-                android:textSize="64sp" />
+                android:textSize="64sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/simulation_result__label" />
 
             <TextView
                 android:id="@+id/total_earned__value"
@@ -41,7 +47,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="Rendimento total de R$ 88,69"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/simulation_result__value" />
         </LinearLayout>
 
         <!--=============== SECOND CONTAINER ===============-->
@@ -51,6 +60,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="@color/brown_300"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
             tools:context=".ResultFragment">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -244,7 +256,8 @@
         <LinearLayout
             android:id="@+id/third_container"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="100dp"
+            android:background="@color/orange_300"
             android:gravity="center"
             android:orientation="vertical">
 

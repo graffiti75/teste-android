@@ -46,7 +46,8 @@ class ResultFragment : Fragment() {
                     if (isEnabled) {
                         isEnabled = false
 //                        requireActivity().onBackPressed()
-                        context.findNavController().navigate(ResultFragmentDirections.actionRestart())
+                        context.findNavController()
+                            .navigate(ResultFragmentDirections.actionRestart())
                     }
                 }
             }
