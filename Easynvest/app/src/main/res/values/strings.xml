@@ -7,6 +7,6 @@
     <string name="no_network">Internet fora do ar. Favor tentar novamente mais tarde.</string>
 
     <string name="invalid_investment">Favor informar o valor do investimento.</string>
-    <string name="invalid_maturity_date">Favor informar uma data para vencimento.</string>
+    <string name="invalid_maturity_date">Favor informar uma data de vencimento válida.</string>
     <string name="invalid_cdi">Favor informar o valor da taxa de CDI.</string>
 </resources>

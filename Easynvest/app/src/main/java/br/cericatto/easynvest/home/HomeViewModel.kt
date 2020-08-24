@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.cericatto.easynvest.utils.EasyApiStatus
 import br.cericatto.easynvest.network.EasyApi
 import br.cericatto.easynvest.network.EasyProperty
+import br.cericatto.easynvest.utils.EasyApiStatus
 import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
@@ -30,6 +30,10 @@ class HomeViewModel : ViewModel() {
     /**
      * UI Fields.
      */
+
+    val _startup = MutableLiveData<Boolean>()
+    val startup: LiveData<Boolean>
+        get() = _startup
 
     val _investmentEditTextIsValid = MutableLiveData<Boolean>()
     val investmentEditTextIsValid: LiveData<Boolean>
@@ -56,6 +60,7 @@ class HomeViewModel : ViewModel() {
      */
 
     init {
+        _startup.value = true
         _investmentEditTextIsValid.value = false
         _cdiEditTextIsValid.value = false
         _dateEditTextIsValid.value = false
@@ -87,6 +92,10 @@ class HomeViewModel : ViewModel() {
     /**
      * UI Fields.
      */
+
+    fun updateStartup() {
+        _startup.value = false
+    }
 
     fun updateInvestmentEditText(valid: Boolean) {
         _investmentEditTextIsValid.value = valid
