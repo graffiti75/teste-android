@@ -1,5 +1,8 @@
 package br.cericatto.easynvest.utils
 
+import java.math.BigDecimal
+import java.math.RoundingMode
+import java.text.NumberFormat
 import java.util.*
 
 fun String.twoDecimals() : String {
@@ -23,4 +26,14 @@ fun Long.dateIsInFuture() : Boolean {
     val hours = minutes / 60
     val days = hours / 24
     return days > 0
+}
+
+/**
+ * Example Entry:
+ * "2023-03-03T00:00:00"
+  */
+fun String.formatMaturityDateFromBackend() : String {
+    val a = this.split("T")
+    val b = a[0].split("-")
+    return "${b[2]}/${b[1]}/${b[0]}"
 }

@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="br.cericatto.easynvest.result.ResultViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="R$ 1.088,69"
+                android:text="@{viewModel.simulationResultValue}"
                 android:textColor="@color/black"
                 android:textSize="64sp" />
 
@@ -69,7 +75,7 @@
                 <TextView
                     android:id="@+id/initial_value__value"
                     style="@style/Result_ValueTextView"
-                    android:text="R$ 1.000,00"
+                    android:text="@{viewModel.initialValue}"
                     app:layout_constraintStart_toEndOf="@+id/initial_value__label"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,7 +91,7 @@
                 <TextView
                     android:id="@+id/raw_value__value"
                     style="@style/Result_ValueTextView"
-                    android:text="R$ 1.088,69"
+                    android:text="@{viewModel.rawValue}"
                     app:layout_constraintStart_toEndOf="@+id/raw_value__label"
                     app:layout_constraintTop_toBottomOf="@+id/initial_value__label" />
 
@@ -101,7 +107,7 @@
                 <TextView
                     android:id="@+id/earned_value__value"
                     style="@style/Result_ValueTextView"
-                    android:text="R$ 88,69"
+                    android:text="@{viewModel.earnedValue}"
                     app:layout_constraintStart_toEndOf="@+id/earned_value__label"
                     app:layout_constraintTop_toBottomOf="@+id/raw_value__label" />
 
@@ -117,7 +123,7 @@
                 <TextView
                     android:id="@+id/ir_value__value"
                     style="@style/Result_ValueTextView"
-                    android:text="R$ 15,52 (17,50%)"
+                    android:text="@{viewModel.formattedTaxValue}"
                     app:layout_constraintStart_toEndOf="@+id/ir_value__label"
                     app:layout_constraintTop_toBottomOf="@+id/earned_value__label" />
 
@@ -133,7 +139,7 @@
                 <TextView
                     android:id="@+id/net_value__value"
                     style="@style/Result_ValueTextView"
-                    android:text="R$ 1.073,17"
+                    android:text="@{viewModel.netValue}"
                     app:layout_constraintStart_toEndOf="@+id/net_value__label"
                     app:layout_constraintTop_toBottomOf="@+id/ir_value__label" />
 
@@ -153,7 +159,7 @@
                     android:id="@+id/date__value"
                     style="@style/Result_ValueTextView"
                     android:layout_marginTop="40dp"
-                    android:text="27/10/2018"
+                    android:text="@{viewModel.dateValue}"
                     app:layout_constraintStart_toEndOf="@+id/date__label"
                     app:layout_constraintTop_toBottomOf="@+id/net_value__label" />
 
@@ -169,7 +175,7 @@
                 <TextView
                     android:id="@+id/days__value"
                     style="@style/Result_ValueTextView"
-                    android:text="365"
+                    android:text="@{viewModel.daysValue}"
                     app:layout_constraintStart_toEndOf="@+id/days__label"
                     app:layout_constraintTop_toBottomOf="@+id/date__label" />
 
@@ -185,7 +191,7 @@
                 <TextView
                     android:id="@+id/monthly_income__value"
                     style="@style/Result_ValueTextView"
-                    android:text="0,57%"
+                    android:text="@{viewModel.monthlyIncomeValue}"
                     app:layout_constraintStart_toEndOf="@+id/monthly_income__label"
                     app:layout_constraintTop_toBottomOf="@+id/days__label" />
 
@@ -201,7 +207,7 @@
                 <TextView
                     android:id="@+id/cdi__value"
                     style="@style/Result_ValueTextView"
-                    android:text="123%"
+                    android:text="@{viewModel.cdiValue}"
                     app:layout_constraintStart_toEndOf="@+id/cdi__label"
                     app:layout_constraintTop_toBottomOf="@+id/monthly_income__label" />
 
@@ -217,7 +223,7 @@
                 <TextView
                     android:id="@+id/annual_profitability__value"
                     style="@style/Result_ValueTextView"
-                    android:text="7,09%"
+                    android:text="@{viewModel.annualProfitabilityValue}"
                     app:layout_constraintStart_toEndOf="@+id/annual_profitability__label"
                     app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
 
@@ -233,7 +239,7 @@
                 <TextView
                     android:id="@+id/period_profitability__value"
                     style="@style/Result_ValueTextView"
-                    android:text="8,87%"
+                    android:text="@{viewModel.periodProfitabilityValue}"
                     app:layout_constraintStart_toEndOf="@+id/period_profitability__label"
                     app:layout_constraintTop_toBottomOf="@+id/annual_profitability__label" />
             </androidx.constraintlayout.widget.ConstraintLayout>

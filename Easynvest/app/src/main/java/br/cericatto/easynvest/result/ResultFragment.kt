@@ -7,15 +7,36 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import br.cericatto.easynvest.databinding.FragmentResultBinding
 
 class ResultFragment : Fragment() {
+
+    //--------------------------------------------------
+    // Attributes
+    //--------------------------------------------------
+
+//    private val viewModel: ResultViewModel by lazy {
+//        ViewModelProvider(this).get(ResultViewModel::class.java)
+//    }
+
+    private lateinit var viewModel: ResultViewModel
+
+    //--------------------------------------------------
+    // Fragment Life Cycle
+    //--------------------------------------------------
+
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
         val binding = FragmentResultBinding.inflate(inflater)
-        binding.lifecycleOwner = this
 
         val easyProperty = ResultFragmentArgs.fromBundle(arguments!!).selectedProperty
+
+        binding.lifecycleOwner = this
+        viewModel = ViewModelProvider(this).get(ResultViewModel::class.java)
+        binding.viewModel = viewModel
+        viewModel.updateEasyProperty(easyProperty)
+
         binding.simulateAgainButton.setOnClickListener {
             this.findNavController().navigate(ResultFragmentDirections.actionRestart())
         }
@@ -25,6 +46,10 @@ class ResultFragment : Fragment() {
 
         return binding.root
     }
+
+    //--------------------------------------------------
+    // Back Navigation Methods
+    //--------------------------------------------------
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
