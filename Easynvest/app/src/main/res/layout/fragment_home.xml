@@ -35,56 +35,59 @@
                     <!-- How Much To Apply -->
 
                     <TextView
-                        android:id="@+id/how_much_to_apply__label"
+                        android:id="@+id/investment__label"
                         style="@style/Home_LabelTextView"
                         android:text="Quanto você gostaria de aplicar? *"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
-                        android:id="@+id/how_much_to_apply"
+                        android:id="@+id/investment__edit_text"
                         style="@style/Home_EntryEditText"
                         android:hint="R$"
                         android:inputType="numberDecimal"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply__label" />
+                        app:layout_constraintTop_toBottomOf="@+id/investment__label" />
 
                     <View
-                        android:id="@+id/how_much_to_apply__separator"
+                        android:id="@+id/investment__separator"
                         style="@style/Home_ViewSeparator"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply" />
+                        app:layout_constraintTop_toBottomOf="@+id/investment__edit_text" />
 
                     <!-- Investment Maturity Date -->
 
                     <TextView
-                        android:id="@+id/investment_maturity_date__label"
+                        android:id="@+id/maturity_date__label"
                         style="@style/Home_LabelTextView"
+                        android:focusableInTouchMode="true"
                         android:text="Qual a data de vencimento do investimento? *"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/how_much_to_apply" />
+                        app:layout_constraintTop_toBottomOf="@+id/investment__edit_text" />
 
-                    <TextView
-                        android:id="@+id/investment_maturity_date__value"
+                    <EditText
+                        android:id="@+id/maturity_date__edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@null"
+                        android:enabled="true"
+                        android:focusable="false"
                         android:gravity="center_horizontal"
                         android:text="dia/mês/ano"
                         android:textColor="@color/grey_400"
                         android:textSize="40sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__label" />
+                        app:layout_constraintTop_toBottomOf="@+id/maturity_date__label" />
 
                     <View
-                        android:id="@+id/investment_maturity_date__separator"
+                        android:id="@+id/maturity_date__separator"
                         style="@style/Home_ViewSeparator"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__value" />
+                        app:layout_constraintTop_toBottomOf="@+id/maturity_date__edit_text" />
 
                     <!-- CDI -->
 
@@ -93,7 +96,7 @@
                         style="@style/Home_LabelTextView"
                         android:text="Qual o percentual do CDI do investimento? *"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__separator" />
+                        app:layout_constraintTop_toBottomOf="@+id/maturity_date__separator" />
 
                     <EditText
                         android:id="@+id/cdi__edit_text"
@@ -123,9 +126,9 @@
                 <Button
                     android:id="@+id/simulate__button"
                     style="@style/Style_Button"
-                    app:easyEnabled="@{viewModel.simulateButtonVisible}"
                     android:background="@drawable/border_round_ripple_grey__grey_background"
                     android:text="Simular"
+                    app:easyEnabled="@{viewModel.simulateButtonVisible}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cdi__separator" />
             </LinearLayout>

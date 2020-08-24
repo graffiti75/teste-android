@@ -1,10 +1,13 @@
 package br.cericatto.easynvest.home
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -14,7 +17,6 @@ import br.cericatto.easynvest.DatePickerFragment
 import br.cericatto.easynvest.R
 import br.cericatto.easynvest.databinding.FragmentHomeBinding
 import br.cericatto.easynvest.utils.formatMaturityDate
-import br.cericatto.easynvest.utils.showToast
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by lazy {
@@ -29,18 +31,35 @@ class HomeFragment : Fragment() {
 
         // Giving the binding access to the HomeViewModel.
         binding.viewModel = viewModel
-        binding.simulateButton.setOnClickListener {
-//            val context = activity!!
-//            if (!context.networkOn()) context.showToast(R.string.no_network)
-//            else {
-                val a = binding.howMuchToApply.text.toString().toDouble()
-                val b = binding.cdiEditText.text.toString().toDouble()
-                val c = binding.investmentMaturityDateValue.text.toString()
-                viewModel.checkFields(a, b, c.formatMaturityDate())
-                // viewModel.getEasynvestData(investedAmount = a, rate = b, maturityDate = c.formatMaturityDate())
-//            }
-        }
+        binding.investmentEditText.requestFocus()
+
         setEditTexts(binding)
+
+        binding.simulateButton.setOnClickListener {
+            val a = binding.investmentEditText.text.toString().toDouble()
+            val b = binding.cdiEditText.text.toString().toDouble()
+            val c = binding.maturityDateEditText.text.toString()
+            viewModel.getEasynvestData(investedAmount = a, rate = b, maturityDate = c.formatMaturityDate())
+        }
+
+        /**
+         * Live Data.
+         */
+
+        viewModel.investmentEditTextIsValid.observe(viewLifecycleOwner, Observer {
+            if (!it) binding.investmentEditText.error = getString(R.string.invalid_investment)
+        })
+
+        viewModel.dateEditTextIsValid.observe(viewLifecycleOwner, Observer {
+            if (!it)
+                binding.maturityDateEditText.error = getString(R.string.invalid_maturity_date)
+            else
+                binding.maturityDateEditText.error = null
+        })
+        
+        viewModel.cdiEditTextIsValid.observe(viewLifecycleOwner, Observer {
+            if (!it) binding.cdiEditText.error = getString(R.string.invalid_cdi)
+        })
 
         viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
             if (null != it) {
@@ -49,19 +68,46 @@ class HomeFragment : Fragment() {
             }
         })
 
-        viewModel.simulateButtonVisible.observe(viewLifecycleOwner, Observer {
-            val context = activity!!
-            context.showToast(R.string.invalid_fields)
-        })
-
         return binding.root
     }
 
     private fun setEditTexts(binding: FragmentHomeBinding) {
-        val dateTextView = binding.investmentMaturityDateValue
-        dateTextView.setOnClickListener {
-            val newFragment: DialogFragment = DatePickerFragment(it as TextView)
+        val investmentEditText = binding.investmentEditText
+        val dateEditText = binding.maturityDateEditText
+        val cdiEdiText = binding.cdiEditText
+
+        investmentEditText.onFocusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
+            if (!hasFocus) {
+                val text = investmentEditText.text.toString()
+                val valid =  (text.isNotEmpty()) && (text.toDouble() > 0)
+                viewModel.updateInvestmentEditText(valid)
+                dateEditText.requestFocus()
+            }
+        }
+
+        dateEditText.setOnClickListener {
+            val newFragment: DialogFragment = DatePickerFragment(it as EditText)
             newFragment.show(fragmentManager!!, "DatePicker")
+        }
+
+        dateEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {
+                val text = dateEditText.text.toString()
+                val valid = text.isNotEmpty()
+                viewModel.updateDateTextView(valid)
+                cdiEdiText.requestFocus()
+            }
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int ) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int ) {}
+        })
+
+        cdiEdiText.setOnEditorActionListener { view, actionId, event ->
+            if (EditorInfo.IME_ACTION_DONE == actionId) {
+                val text = cdiEdiText.text.toString()
+                val valid =  (text.isNotEmpty()) && (text.toDouble() > 0)
+                viewModel.updateCdiEditText(valid)
+            }
+            false
         }
     }
 }

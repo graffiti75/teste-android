@@ -5,12 +5,12 @@ import android.app.DatePickerDialog.OnDateSetListener
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.DatePicker
-import android.widget.TextView
+import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import br.cericatto.easynvest.utils.twoDecimals
 import java.util.*
 
-class DatePickerFragment(val view: TextView) : DialogFragment(), OnDateSetListener {
+class DatePickerFragment(val editText: EditText) : DialogFragment(), OnDateSetListener {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val calendar: Calendar = Calendar.getInstance()
         val yy: Int = calendar.get(Calendar.YEAR)
@@ -24,6 +24,6 @@ class DatePickerFragment(val view: TextView) : DialogFragment(), OnDateSetListen
     }
 
     private fun populateSetDate(year: Int, month: Int, day: Int) {
-        view.text = "${day.toString().twoDecimals()}/${month.toString().twoDecimals()}/$year"
+        editText.setText("${day.toString().twoDecimals()}/${month.toString().twoDecimals()}/$year")
     }
 }

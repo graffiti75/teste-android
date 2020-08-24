@@ -28,9 +28,8 @@ fun bindStatus(statusImageView: ImageView, status: EasyApiStatus?) {
 @BindingAdapter("easyEnabled")
 fun bindEnabled(button: Button, enabled: Boolean) {
     val context = button.context
-    if (enabled) {
-        button.background = ContextCompat.getDrawable(context, R.drawable.border_round_ripple_purple__purple_background)
-    } else {
-        button.background = ContextCompat.getDrawable(context, R.drawable.border_round_ripple_grey__grey_background)
-    }
+    var backgroundId = R.drawable.border_round_ripple_grey__grey_background
+    if (enabled) backgroundId = R.drawable.border_round_ripple_purple__purple_background
+    button.background = ContextCompat.getDrawable(context, backgroundId)
+    button.isEnabled = enabled
 }
