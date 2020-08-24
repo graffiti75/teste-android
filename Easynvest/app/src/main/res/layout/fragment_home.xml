@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="br.cericatto.easynvest.home.HomeViewModel" />
@@ -127,6 +128,7 @@
                     android:id="@+id/simulate__button"
                     style="@style/Style_Button"
                     android:background="@drawable/border_round_ripple_grey__grey_background"
+                    android:onClick="@{() -> viewModel.getEasynvestData()}"
                     android:text="Simular"
                     app:easyEnabled="@{viewModel.simulateButtonVisible}"
                     app:layout_constraintStart_toStartOf="parent"

@@ -11,6 +11,10 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
+    //--------------------------------------------------
+    // Attributes
+    //--------------------------------------------------
+
     /**
      * API.
      */
@@ -56,20 +60,46 @@ class HomeViewModel : ViewModel() {
         get() = _simulateButtonVisible
 
     /**
-     * Init.
+     * Entry Data.
      */
+
+    val _investment = MutableLiveData<Double>()
+    val investment: LiveData<Double>
+        get() = _investment
+
+    val _date = MutableLiveData<String>()
+    val date: LiveData<String>
+        get() = _date
+
+    val _cdi = MutableLiveData<Double>()
+    val cdi: LiveData<Double>
+        get() = _cdi
+
+    //--------------------------------------------------
+    // Init
+    //--------------------------------------------------
 
     init {
         _startup.value = true
+        _timeMillis.value = 0
+
         _investmentEditTextIsValid.value = false
         _cdiEditTextIsValid.value = false
         _dateEditTextIsValid.value = false
         _simulateButtonVisible.value = false
     }
 
+    //--------------------------------------------------
+    // Methods
+    //--------------------------------------------------
+
     /**
      * Retrofit.
      */
+
+    fun getEasynvestData() {
+        getEasynvestData(_investment.value!!, _cdi.value!!, _date.value!!)
+    }
 
     fun getEasynvestData(investedAmount: Double, rate: Double, maturityDate: String) {
         viewModelScope.launch {
@@ -97,18 +127,21 @@ class HomeViewModel : ViewModel() {
         _startup.value = false
     }
 
-    fun updateInvestmentEditText(valid: Boolean) {
+    fun updateInvestmentEditText(valid: Boolean, value: Double) {
         _investmentEditTextIsValid.value = valid
+        _investment.value = value
         updateButtonVisibility()
     }
 
-    fun updateCdiEditText(valid: Boolean) {
+    fun updateCdiEditText(valid: Boolean, value: Double) {
         _cdiEditTextIsValid.value = valid
+        _cdi.value = value
         updateButtonVisibility()
     }
 
-    fun updateDateTextView(valid: Boolean) {
+    fun updateDateTextView(valid: Boolean, value: String) {
         _dateEditTextIsValid.value = valid
+        _date.value = value
         updateButtonVisibility()
     }
 
