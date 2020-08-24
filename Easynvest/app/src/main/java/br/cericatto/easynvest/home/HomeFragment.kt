@@ -7,15 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import br.cericatto.easynvest.DatePickerFragment
+import br.cericatto.easynvest.utils.DatePickerFragment
 import br.cericatto.easynvest.R
 import br.cericatto.easynvest.databinding.FragmentHomeBinding
+import br.cericatto.easynvest.utils.dateIsInFuture
 import br.cericatto.easynvest.utils.formatMaturityDate
 
 class HomeFragment : Fragment() {
@@ -86,14 +86,14 @@ class HomeFragment : Fragment() {
         }
 
         dateEditText.setOnClickListener {
-            val newFragment: DialogFragment = DatePickerFragment(it as EditText)
+            val newFragment: DialogFragment = DatePickerFragment(viewModel, dateEditText)
             newFragment.show(fragmentManager!!, "DatePicker")
         }
 
         dateEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
                 val text = dateEditText.text.toString()
-                val valid = text.isNotEmpty()
+                val valid = text.isNotEmpty() && viewModel.getTimeMillis().dateIsInFuture()
                 viewModel.updateDateTextView(valid)
                 cdiEdiText.requestFocus()
             }

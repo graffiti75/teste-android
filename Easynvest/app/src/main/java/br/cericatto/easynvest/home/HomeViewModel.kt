@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.cericatto.easynvest.EasyApiStatus
+import br.cericatto.easynvest.utils.EasyApiStatus
 import br.cericatto.easynvest.network.EasyApi
 import br.cericatto.easynvest.network.EasyProperty
 import kotlinx.coroutines.launch
@@ -39,6 +39,10 @@ class HomeViewModel : ViewModel() {
     val dateEditTextIsValid: LiveData<Boolean>
         get() = _dateEditTextIsValid
 
+    val _timeMillis = MutableLiveData<Long>()
+    val timeMillis: LiveData<Long>
+        get() = _timeMillis
+
     val _cdiEditTextIsValid = MutableLiveData<Boolean>()
     val cdiEditTextIsValid: LiveData<Boolean>
         get() = _cdiEditTextIsValid
@@ -59,7 +63,7 @@ class HomeViewModel : ViewModel() {
     }
 
     /**
-     * Sets the value of the status LiveData to the Easy API status.
+     * Retrofit.
      */
 
     fun getEasynvestData(investedAmount: Double, rate: Double, maturityDate: String) {
@@ -99,12 +103,24 @@ class HomeViewModel : ViewModel() {
         updateButtonVisibility()
     }
 
+    fun setTimeMillis(millis: Long) {
+        _timeMillis.value = millis
+    }
+
+    fun getTimeMillis() : Long {
+        return _timeMillis.value!!
+    }
+
     fun updateButtonVisibility() {
         val investment = _investmentEditTextIsValid.value
         val date = _dateEditTextIsValid.value
         val cdi = _cdiEditTextIsValid.value
         _simulateButtonVisible.value = investment!! && date!! && cdi!!
     }
+
+    /**
+     * Screen Transition.
+     */
 
     private fun displayPropertyDetails(easyProperty: EasyProperty) {
         _navigateToSelectedProperty.value = easyProperty

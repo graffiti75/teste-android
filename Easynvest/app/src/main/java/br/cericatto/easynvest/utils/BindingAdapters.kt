@@ -1,10 +1,11 @@
-package br.cericatto.easynvest
+package br.cericatto.easynvest.utils
 
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import br.cericatto.easynvest.R
 
 enum class EasyApiStatus { LOADING, ERROR, DONE }
 
