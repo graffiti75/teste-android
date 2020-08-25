@@ -18,10 +18,16 @@ buildscript {
 
         version_retrofit = "2.9.0"
         version_moshi = "1.8.0"
+        version_okhttp="4.2.1"
 
         version_junit = "4.13"
         version_junit_ext = "1.1.1"
         version_espresso = "3.2.0"
+
+        version_test_runner="1.1.1"
+        version_test_rules="1.2.0"
+        version_okhttp_idling_resource="1.0.0"
+        version_okhttp_mockwebserver="4.2.0"
     }
     repositories {
         google()

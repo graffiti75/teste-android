@@ -4,6 +4,8 @@
     <string name="fragment_home__label">Easynvest</string>
     <string name="fragment_result__label">Easynvest CDI</string>
 
+    <string name="retrofit_error">Erro ao carregar dados da API da Easynvest.</string>
+
     <!-- Home -->
 
     <string name="how_much_would_you_like_to_apply__label">Quanto você gostaria de aplicar? *</string>

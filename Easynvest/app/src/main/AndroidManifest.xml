@@ -19,5 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Test Activity's -->
+
+        <activity android:name=".RetrofitActivity" />
     </application>
 </manifest>

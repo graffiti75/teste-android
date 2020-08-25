@@ -23,6 +23,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -61,9 +64,15 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+    implementation "com.squareup.okhttp3:okhttp:$version_okhttp"
 
     // Tests.
     testImplementation "junit:junit:$version_junit"
     androidTestImplementation "androidx.test.ext:junit:$version_junit_ext"
     androidTestImplementation "androidx.test.espresso:espresso-core:$version_espresso"
+
+    androidTestImplementation "androidx.test:runner:$version_test_runner"
+    androidTestImplementation "androidx.test:rules:$version_test_rules"
+    androidTestImplementation "com.jakewharton.espresso:okhttp3-idling-resource:$version_okhttp_idling_resource"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$version_okhttp_mockwebserver"
 }

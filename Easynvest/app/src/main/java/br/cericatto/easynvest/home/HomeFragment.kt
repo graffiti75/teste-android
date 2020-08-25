@@ -20,7 +20,6 @@ import br.cericatto.easynvest.databinding.FragmentHomeBinding
 import br.cericatto.easynvest.utils.*
 import com.google.android.material.snackbar.Snackbar
 
-
 class HomeFragment : Fragment() {
 
     //--------------------------------------------------
@@ -174,7 +173,6 @@ class HomeFragment : Fragment() {
                 viewModel.updateDateTextView(valid, text.formatMaturityDate())
                 cdiEditText.requestFocus()
             }
-
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
         })
@@ -228,8 +226,6 @@ class HomeFragment : Fragment() {
                 viewModel.updateCdiEditText(valid, text.toDouble())
                 val outputText = "${text.toDouble().formatPercentage()}%"
                 updateCdiTextValue(cdiEditText, outputText)
-//                cdiEditText.setText(outputText)
-//                cdiEditText.setSelection(outputText.length)
             }
         }
     }
@@ -239,8 +235,6 @@ class HomeFragment : Fragment() {
         val text = cdiEditText.text.toString()
         val formattedText = text.formatPercentage()
         updateCdiTextValue(cdiEditText, formattedText)
-//        cdiEditText.setText(formattedText)
-//        cdiEditText.setSelection(formattedText.length)
         mMustFormatEditText = false
     }
 
