@@ -220,7 +220,7 @@ class HomeFragment : Fragment() {
             cdiEditText.setText("")
             viewModel.updateCdiEditText(false, 0.0)
         } else {
-            val text = editTextString.currencyToDouble().toString()
+            val text = editTextString.percentageToDouble().toString()
             if (text.isNotEmpty()) {
                 val valid = (text.isNotEmpty()) && (text.toDouble() > 0)
                 viewModel.updateCdiEditText(valid, text.toDouble())

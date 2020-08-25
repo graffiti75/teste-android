@@ -38,8 +38,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~17.1. File `loading_animation.xml`.~~  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~17.2. File `ic_connection_error.xml`.~~  
 18. Test app on smaller devices.  
-19. Create `Unit Tests` with `JUnit`.  
-20. Create `Instrumented Tests` with `Espresso`.  
+~~19. Create `Unit Tests` with `JUnit`.~~  
+~~20. Create `Instrumented Tests` with `Espresso`.~~  
 
 ## Implementation Details
 

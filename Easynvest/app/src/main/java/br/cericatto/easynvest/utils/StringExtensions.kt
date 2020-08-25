@@ -38,16 +38,12 @@ fun String.formatMaturityDateFromBackend() : String {
     return "${b[2]}/${b[1]}/${b[0]}"
 }
 
-fun String.currencyToDouble() : Double {
-    return if (this.contains("%")) {
-        this.replace(",", ";")
-            .replace(".", "")
-            .replace(";", ".")
-            .replace("%", "")
-            .toDouble()
-    } else {
-        this.toDouble()
-    }
+fun String.percentageToDouble() : Double {
+    return this.replace(",", ";")
+        .replace(".", "")
+        .replace(";", ".")
+        .replace("%", "")
+        .toDouble()
 }
 
 fun String.formatPercentage() : String {
