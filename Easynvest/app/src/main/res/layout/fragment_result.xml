@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="Resultado da simulação"
+                android:text="@string/simulation_result__label"
                 android:textSize="18sp" />
 
             <TextView
@@ -39,14 +39,16 @@
                 android:gravity="center_horizontal"
                 android:text="@{viewModel.simulationResultValue}"
                 android:textColor="@color/black"
-                android:textSize="64sp" />
+                android:textSize="64sp"
+                tools:text="@string/simulation_result__value" />
 
             <TextView
                 android:id="@+id/total_earned__value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="Rendimento total de R$ 88,69"
+                app:easyColoredTextView="@{viewModel.earnedValueForColored}"
+                tools:text="@string/total_investment__value"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -68,7 +70,7 @@
                 <TextView
                     android:id="@+id/initial_value__label"
                     style="@style/Result_LabelTextView"
-                    android:text="Valor aplicado inicialmente"
+                    android:text="@string/initial_applied__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,14 +79,15 @@
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.initialValue}"
                     app:layout_constraintStart_toEndOf="@+id/initial_value__label"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/initial_applied__value" />
 
                 <!-- Raw Value -->
 
                 <TextView
                     android:id="@+id/raw_value__label"
                     style="@style/Result_LabelTextView"
-                    android:text="Valor bruto do investimento"
+                    android:text="@string/gross_invesment_amount__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/initial_value__label" />
 
@@ -93,14 +96,15 @@
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.rawValue}"
                     app:layout_constraintStart_toEndOf="@+id/raw_value__label"
-                    app:layout_constraintTop_toBottomOf="@+id/initial_value__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/initial_value__label"
+                    tools:text="@string/gross_invesment_amount__value" />
 
                 <!-- Earned Value -->
 
                 <TextView
                     android:id="@+id/earned_value__label"
                     style="@style/Result_LabelTextView"
-                    android:text="Valor do rendimento"
+                    android:text="@string/income__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/raw_value__label" />
 
@@ -109,14 +113,15 @@
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.earnedValue}"
                     app:layout_constraintStart_toEndOf="@+id/earned_value__label"
-                    app:layout_constraintTop_toBottomOf="@+id/raw_value__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/raw_value__label"
+                    tools:text="@string/income__value" />
 
                 <!-- IR -->
 
                 <TextView
                     android:id="@+id/ir_value__label"
                     style="@style/Result_LabelTextView"
-                    android:text="IR sobre o investimento"
+                    android:text="@string/investment_tax__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/earned_value__label" />
 
@@ -125,14 +130,15 @@
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.formattedTaxValue}"
                     app:layout_constraintStart_toEndOf="@+id/ir_value__label"
-                    app:layout_constraintTop_toBottomOf="@+id/earned_value__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/earned_value__label"
+                    tools:text="@string/investment_tax__value" />
 
                 <!-- IR -->
 
                 <TextView
                     android:id="@+id/net_value__label"
                     style="@style/Result_LabelTextView"
-                    android:text="Valor líquido do investimento"
+                    android:text="@string/net_investment__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ir_value__label" />
 
@@ -141,7 +147,8 @@
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.netValue}"
                     app:layout_constraintStart_toEndOf="@+id/net_value__label"
-                    app:layout_constraintTop_toBottomOf="@+id/ir_value__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/ir_value__label"
+                    tools:text="@string/net_investment__value" />
 
                 <!--=============== THIRD HEADER ===============-->
 
@@ -151,7 +158,7 @@
                     android:id="@+id/date__label"
                     style="@style/Result_LabelTextView"
                     android:layout_marginTop="40dp"
-                    android:text="Data de resgate"
+                    android:text="@string/redemption_date__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/net_value__label" />
 
@@ -161,14 +168,15 @@
                     android:layout_marginTop="40dp"
                     android:text="@{viewModel.dateValue}"
                     app:layout_constraintStart_toEndOf="@+id/date__label"
-                    app:layout_constraintTop_toBottomOf="@+id/net_value__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/net_value__label"
+                    tools:text="@string/redemption_date__value" />
 
                 <!-- Days -->
 
                 <TextView
                     android:id="@+id/days__label"
                     style="@style/Result_LabelTextView"
-                    android:text="Dias corridos"
+                    android:text="@string/running_days__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/date__label" />
 
@@ -177,14 +185,15 @@
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.daysValue}"
                     app:layout_constraintStart_toEndOf="@+id/days__label"
-                    app:layout_constraintTop_toBottomOf="@+id/date__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/date__label"
+                    tools:text="@string/running_days__value" />
 
                 <!-- Monthly Income -->
 
                 <TextView
                     android:id="@+id/monthly_income__label"
                     style="@style/Result_LabelTextView"
-                    android:text="Rendimento mensal"
+                    android:text="@string/monthly_income__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/days__label" />
 
@@ -193,14 +202,15 @@
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.monthlyIncomeValue}"
                     app:layout_constraintStart_toEndOf="@+id/monthly_income__label"
-                    app:layout_constraintTop_toBottomOf="@+id/days__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/days__label"
+                    tools:text="@string/monthly_income__value" />
 
                 <!-- CDI -->
 
                 <TextView
-                    android:id="@+id/cdi__label"
+                    android:id="@+id/what_is_cdi_percentage__label"
                     style="@style/Result_LabelTextView"
-                    android:text="Percentual do CDI do investimento"
+                    android:text="@string/percentage_cdi__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/monthly_income__label" />
 
@@ -208,31 +218,33 @@
                     android:id="@+id/cdi__value"
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.cdiValue}"
-                    app:layout_constraintStart_toEndOf="@+id/cdi__label"
-                    app:layout_constraintTop_toBottomOf="@+id/monthly_income__label" />
+                    app:layout_constraintStart_toEndOf="@+id/what_is_cdi_percentage__label"
+                    app:layout_constraintTop_toBottomOf="@+id/monthly_income__label"
+                    tools:text="@string/percentage_cdi__value" />
 
                 <!-- Annual Profitability -->
 
                 <TextView
                     android:id="@+id/annual_profitability__label"
                     style="@style/Result_LabelTextView"
-                    android:text="Rentabilidade anual"
+                    android:text="@string/annual_profitability__label"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/what_is_cdi_percentage__label" />
 
                 <TextView
                     android:id="@+id/annual_profitability__value"
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.annualProfitabilityValue}"
                     app:layout_constraintStart_toEndOf="@+id/annual_profitability__label"
-                    app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/what_is_cdi_percentage__label"
+                    tools:text="@string/annual_profitability__value" />
 
                 <!-- Period Profitability -->
 
                 <TextView
                     android:id="@+id/period_profitability__label"
                     style="@style/Result_LabelTextView"
-                    android:text="Rentabilidade no período"
+                    android:text="@string/period_profitability__label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/annual_profitability__label" />
 
@@ -241,7 +253,8 @@
                     style="@style/Result_ValueTextView"
                     android:text="@{viewModel.periodProfitabilityValue}"
                     app:layout_constraintStart_toEndOf="@+id/period_profitability__label"
-                    app:layout_constraintTop_toBottomOf="@+id/annual_profitability__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/annual_profitability__label"
+                    tools:text="@string/period_profitability__value" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
@@ -259,7 +272,7 @@
                 style="@style/Style_Button"
                 android:background="@drawable/border_round_ripple_teal__teal_background"
                 android:gravity="center"
-                android:text="Simular novamente" />
+                android:text="@string/simulate_again__button" />
         </LinearLayout>
     </LinearLayout>
 </layout>

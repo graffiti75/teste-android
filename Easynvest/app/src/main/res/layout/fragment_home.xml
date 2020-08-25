@@ -35,38 +35,38 @@
                     <!-- How Much To Apply -->
 
                     <TextView
-                        android:id="@+id/investment__label"
+                        android:id="@+id/how_much_would_you_like_to_apply__label"
                         style="@style/Home_LabelTextView"
-                        android:text="Quanto você gostaria de aplicar? *"
+                        android:text="@string/how_much_would_you_like_to_apply__label"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
-                        android:id="@+id/investment__edit_text"
+                        android:id="@+id/how_much_would_you_like_to_apply__edit_text"
                         style="@style/Home_EntryEditText"
-                        android:hint="R$"
+                        android:hint="@string/how_much_would_you_like_to_apply__hint"
                         android:inputType="numberDecimal"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/investment__label" />
+                        app:layout_constraintTop_toBottomOf="@+id/how_much_would_you_like_to_apply__label" />
 
                     <View
                         android:id="@+id/investment__separator"
                         style="@style/Home_ViewSeparator"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/investment__edit_text" />
+                        app:layout_constraintTop_toBottomOf="@+id/how_much_would_you_like_to_apply__edit_text" />
 
                     <!-- Investment Maturity Date -->
 
                     <TextView
-                        android:id="@+id/maturity_date__label"
+                        android:id="@+id/investment_maturity_date__label"
                         style="@style/Home_LabelTextView"
                         android:focusableInTouchMode="true"
-                        android:text="Qual a data de vencimento do investimento? *"
+                        android:text="@string/investment_maturity_date__label"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/investment__edit_text" />
+                        app:layout_constraintTop_toBottomOf="@+id/how_much_would_you_like_to_apply__edit_text" />
 
                     <EditText
-                        android:id="@+id/maturity_date__edit_text"
+                        android:id="@+id/investment_maturity_date__edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -76,41 +76,41 @@
                         android:enabled="true"
                         android:focusable="false"
                         android:gravity="center_horizontal"
-                        android:text="dia/mês/ano"
+                        android:text="@string/investment_maturity_date__hint"
                         android:textColor="@color/grey_400"
                         android:textSize="40sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/maturity_date__label" />
+                        app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__label" />
 
                     <View
                         android:id="@+id/maturity_date__separator"
                         style="@style/Home_ViewSeparator"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/maturity_date__edit_text" />
+                        app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__edit_text" />
 
                     <!-- CDI -->
 
                     <TextView
-                        android:id="@+id/cdi__label"
+                        android:id="@+id/what_is_cdi_percentage__label"
                         style="@style/Home_LabelTextView"
-                        android:text="Qual o percentual do CDI do investimento? *"
+                        android:text="@string/what_is_cdi_percentage__label"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/maturity_date__separator" />
 
                     <EditText
-                        android:id="@+id/cdi__edit_text"
+                        android:id="@+id/what_is_cdi_percentage__edit_text"
                         style="@style/Home_EntryEditText"
-                        android:hint="100%"
+                        android:hint="@string/what_is_cdi_percentage__hint"
                         android:inputType="numberDecimal"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
+                        app:layout_constraintTop_toBottomOf="@+id/what_is_cdi_percentage__label" />
 
                     <View
                         android:id="@+id/cdi__separator"
                         style="@style/Home_ViewSeparator"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cdi__edit_text" />
+                        app:layout_constraintTop_toBottomOf="@+id/what_is_cdi_percentage__edit_text" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>
 
@@ -128,8 +128,8 @@
                     style="@style/Style_Button"
                     android:background="@drawable/border_round_ripple_grey__grey_background"
                     android:onClick="@{() -> viewModel.getEasynvestData()}"
-                    android:text="Simular"
-                    app:easyEnabled="@{viewModel.simulateButtonVisible}"
+                    android:text="@string/simulate__button"
+                    app:easyButtonEnabled="@{viewModel.simulateButtonVisible}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cdi__separator" />
             </LinearLayout>

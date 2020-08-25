@@ -204,7 +204,7 @@
                 <!-- CDI -->
 
                 <TextView
-                    android:id="@+id/cdi__label"
+                    android:id="@+id/what_is_cdi_percentage__label"
                     style="@style/Result_LabelTextView"
                     android:text="Percentual do CDI do investimento"
                     app:layout_constraintStart_toStartOf="parent"
@@ -214,7 +214,7 @@
                     android:id="@+id/cdi__value"
                     style="@style/Result_ValueTextView"
                     android:text="123%"
-                    app:layout_constraintStart_toEndOf="@+id/cdi__label"
+                    app:layout_constraintStart_toEndOf="@+id/what_is_cdi_percentage__label"
                     app:layout_constraintTop_toBottomOf="@+id/monthly_income__label" />
 
                 <!-- Annual Profitability -->
@@ -224,14 +224,14 @@
                     style="@style/Result_LabelTextView"
                     android:text="Rentabilidade anual"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/what_is_cdi_percentage__label" />
 
                 <TextView
                     android:id="@+id/annual_profitability__value"
                     style="@style/Result_ValueTextView"
                     android:text="7,09%"
                     app:layout_constraintStart_toEndOf="@+id/annual_profitability__label"
-                    app:layout_constraintTop_toBottomOf="@+id/cdi__label" />
+                    app:layout_constraintTop_toBottomOf="@+id/what_is_cdi_percentage__label" />
 
                 <!-- Period Profitability -->
 

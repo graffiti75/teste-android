@@ -17,10 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import br.cericatto.easynvest.R
 import br.cericatto.easynvest.databinding.FragmentHomeBinding
-import br.cericatto.easynvest.utils.DatePickerFragment
-import br.cericatto.easynvest.utils.dateIsInFuture
-import br.cericatto.easynvest.utils.formatMaturityDate
-import br.cericatto.easynvest.utils.hideKeyboard
+import br.cericatto.easynvest.utils.*
 import com.google.android.material.snackbar.Snackbar
 
 class HomeFragment : Fragment() {
@@ -30,7 +27,8 @@ class HomeFragment : Fragment() {
     //--------------------------------------------------
 
     companion object {
-        private const val DELAY: Long = 1250
+        private const val ANIMATION_DELAY: Long = 500
+        private const val PICKER_DELAY: Long = 1000
     }
 
     private val viewModel: HomeViewModel by lazy {
@@ -50,7 +48,7 @@ class HomeFragment : Fragment() {
         // Giving the binding access to the HomeViewModel.
         binding.viewModel = viewModel
         setEditTexts(binding)
-        binding.investmentEditText.requestFocus()
+        binding.howMuchWouldYouLikeToApplyEditText.requestFocus()
 
         // Live Data.
         observeInvestmentEditTextIsValid(binding)
@@ -66,23 +64,26 @@ class HomeFragment : Fragment() {
     //--------------------------------------------------
 
     private fun observeInvestmentEditTextIsValid(binding: FragmentHomeBinding) {
-        val investmentEditText = binding.investmentEditText
-        val dateEditText = binding.maturityDateEditText
+        val investmentEditText = binding.howMuchWouldYouLikeToApplyEditText
+        val dateEditText = binding.investmentMaturityDateEditText
         viewModel.investmentEditTextIsValid.observe(viewLifecycleOwner, Observer {
             val starting = viewModel.startup.value!!
             if (!starting)
                 if (!it) investmentEditText.error = getString(R.string.invalid_investment)
                 else {
                     Handler(Looper.getMainLooper()).postDelayed({
-                        openDatePicker(dateEditText)
-                    }, DELAY)
+                        initViewAnimation(dateEditText, dateEditText.context.anim(R.anim.zoom_in_95))
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            openDatePicker(dateEditText)
+                        }, PICKER_DELAY)
+                    }, ANIMATION_DELAY)
                 }
         })
     }
 
     private fun observeDateEditTextIsValid(binding: FragmentHomeBinding) {
         val context = activity!!
-        val dateEditText = binding.maturityDateEditText
+        val dateEditText = binding.investmentMaturityDateEditText
         viewModel.dateEditTextIsValid.observe(viewLifecycleOwner, Observer {
             val starting = viewModel.startup.value!!
             if (!starting) {
@@ -99,7 +100,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeCdiEditTextIsValid(binding: FragmentHomeBinding) {
-        val cdiEditText = binding.cdiEditText
+        val cdiEditText = binding.whatIsCdiPercentageEditText
         viewModel.cdiEditTextIsValid.observe(viewLifecycleOwner, Observer {
             val starting = viewModel.startup.value!!
             if (!starting)
@@ -121,13 +122,13 @@ class HomeFragment : Fragment() {
     //--------------------------------------------------
 
     private fun setEditTexts(binding: FragmentHomeBinding) {
-        investmentEditTextonFocusChangeListener(binding)
+        investmentEditTextListeners(binding)
         dateEditTextListeners(binding)
-        cdiEdiTextOnEditorActionListener(binding)
+        cdiEditTextListeners(binding)
     }
 
-    private fun investmentEditTextonFocusChangeListener(binding: FragmentHomeBinding) {
-        val investmentEditText = binding.investmentEditText
+    private fun investmentEditTextListeners(binding: FragmentHomeBinding) {
+        val investmentEditText = binding.howMuchWouldYouLikeToApplyEditText
         val context = activity!!
         investmentEditText.onFocusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
             if (!hasFocus) {
@@ -135,41 +136,56 @@ class HomeFragment : Fragment() {
                 val text = investmentEditText.text.toString()
                 val valid =  (text.isNotEmpty()) && (text.toDouble() > 0)
                 viewModel.updateInvestmentEditText(valid, text.toDouble())
+                investmentEditText.setText(text.toDouble().doubleToCurrency())
                 context.hideKeyboard(view!!)
+            } else {
+                val formattedText = investmentEditText.text.toString()
+                    .replace("R", "")
+                    .replace("$", "")
+                    .replace(".", "")
+                    .replace(",", ".")
+                    .replace(" ", "")
+                investmentEditText.setText(formattedText)
             }
         }
     }
 
     private fun dateEditTextListeners(binding: FragmentHomeBinding) {
-        val dateEditText = binding.maturityDateEditText
-        val cdiEdiText = binding.cdiEditText
+        val dateEditText = binding.investmentMaturityDateEditText
+        val cdiEditText = binding.whatIsCdiPercentageEditText
         dateEditText.setOnClickListener {
             openDatePicker(dateEditText)
         }
-
         dateEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
                 viewModel.updateStartup()
                 val text = dateEditText.text.toString()
                 val valid = text.isNotEmpty() && viewModel.getTimeMillis().dateIsInFuture()
                 viewModel.updateDateTextView(valid, text.formatMaturityDate())
-                cdiEdiText.requestFocus()
+                cdiEditText.requestFocus()
             }
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int ) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int ) {}
         })
     }
 
-    private fun cdiEdiTextOnEditorActionListener(binding: FragmentHomeBinding) {
-        val cdiEdiText = binding.cdiEditText
-        cdiEdiText.setOnEditorActionListener { view, actionId, event ->
+    private fun cdiEditTextListeners(binding: FragmentHomeBinding) {
+        val cdiEditText = binding.whatIsCdiPercentageEditText
+        cdiEditText.setOnEditorActionListener { view, actionId, event ->
             if (EditorInfo.IME_ACTION_DONE == actionId) {
                 viewModel.updateStartup()
-                val text = cdiEdiText.text.toString()
+                val text = cdiEditText.text.toString()
                 val valid =  (text.isNotEmpty()) && (text.toDouble() > 0)
                 viewModel.updateCdiEditText(valid, text.toDouble())
+                cdiEditText.setText("$text%")
             }
             false
+        }
+        cdiEditText.setOnClickListener {
+            val formattedText = cdiEditText.text.toString()
+                .replace("%", "")
+                .replace(" ", "")
+            cdiEditText.setText(formattedText)
         }
     }
 

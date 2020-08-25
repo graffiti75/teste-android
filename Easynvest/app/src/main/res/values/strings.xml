@@ -4,9 +4,52 @@
     <string name="fragment_home__label">Easynvest</string>
     <string name="fragment_result__label">Easynvest CDI</string>
 
-    <string name="no_network">Internet fora do ar. Favor tentar novamente mais tarde.</string>
+    <!-- Home -->
+
+    <string name="how_much_would_you_like_to_apply__label">Quanto você gostaria de aplicar? *</string>
+    <string name="how_much_would_you_like_to_apply__hint">R$</string>
+
+    <string name="investment_maturity_date__label">Qual a data de vencimento do investimento? *</string>
+    <string name="investment_maturity_date__hint">dia/mês/ano</string>
+
+    <string name="what_is_cdi_percentage__label">Qual o percentual do CDI do investimento? *</string>
+    <string name="what_is_cdi_percentage__hint">100%</string>
+
+    <string name="simulate__button">Simular</string>
 
     <string name="invalid_investment">Favor informar o valor do investimento.</string>
     <string name="invalid_maturity_date">Favor informar uma data de vencimento válida.</string>
     <string name="invalid_cdi">Favor informar o valor da taxa de CDI.</string>
+
+    <!-- Result -->
+
+    <string name="simulation_result__label">Resultado da simulação</string>
+    <string name="simulation_result__value">R$1.088,69</string>
+    <string name="total_investment__value">Rendimento total de R$88,69</string>
+
+    <string name="initial_applied__label">Valor aplicado inicialmente</string>
+    <string name="initial_applied__value">R$1.000,00</string>
+    <string name="gross_invesment_amount__label">Valor bruto do investimento</string>
+    <string name="gross_invesment_amount__value">R$1.088,69</string>
+    <string name="income__label">Valor do rendimento</string>
+    <string name="income__value">R$88,69</string>
+    <string name="investment_tax__label">IR sobre o investimento</string>
+    <string name="investment_tax__value">R$15,52 (17,50%)</string>
+    <string name="net_investment__label">Valor líquido do investimento</string>
+    <string name="net_investment__value">R$1.073,17</string>
+
+    <string name="redemption_date__label">Data de resgate</string>
+    <string name="redemption_date__value">27/10/2018</string>
+    <string name="running_days__label">Dias corridos</string>
+    <string name="running_days__value">365</string>
+    <string name="monthly_income__label">Rendimento mensal</string>
+    <string name="monthly_income__value">0,57%</string>
+    <string name="percentage_cdi__label">Percentual do CDI do investimento</string>
+    <string name="percentage_cdi__value">123%</string>
+    <string name="annual_profitability__label">Rentabilidade anual</string>
+    <string name="annual_profitability__value">7,09%</string>
+    <string name="period_profitability__label">Rentabilidade no período</string>
+    <string name="period_profitability__value">8,87%</string>
+
+    <string name="simulate_again__button">Simular novamente</string>
 </resources>

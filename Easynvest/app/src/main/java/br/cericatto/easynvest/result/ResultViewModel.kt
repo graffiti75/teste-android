@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import br.cericatto.easynvest.network.EasyProperty
 import br.cericatto.easynvest.utils.doubleToCurrency
 import br.cericatto.easynvest.utils.formatMaturityDateFromBackend
+import br.cericatto.easynvest.utils.formatPercentageFromBackend
 
 class ResultViewModel : ViewModel() {
 
@@ -34,11 +35,15 @@ class ResultViewModel : ViewModel() {
     val earnedValue = Transformations.map(easyProperty) { easyProperty ->
         easyProperty.grossAmountProfit.doubleToCurrency()
     }
+    val earnedValueForColored = Transformations.map(easyProperty) { easyProperty ->
+        easyProperty.grossAmountProfit.doubleToCurrency(false)
+    }
 
     val formattedTaxValue = Transformations.map(easyProperty) { easyProperty ->
         val taxesAmount = easyProperty.taxesAmount
         val taxesRate = easyProperty.taxesRate
-        "${taxesAmount.doubleToCurrency()} (${taxesRate.toString().replace(".", ",")}%)"
+        "${taxesAmount.doubleToCurrency()} (${taxesRate.formatPercentageFromBackend()})"
+        "${taxesAmount.doubleToCurrency()} (${taxesRate.formatPercentageFromBackend()})"
     }
 
     val netValue = Transformations.map(easyProperty) { easyProperty ->
@@ -54,19 +59,19 @@ class ResultViewModel : ViewModel() {
     }
 
     val monthlyIncomeValue = Transformations.map(easyProperty) { easyProperty ->
-        "${easyProperty.monthlyGrossRateProfit.toString().replace(".", ",")}%"
+        "${easyProperty.monthlyGrossRateProfit.formatPercentageFromBackend()}"
     }
 
     val cdiValue = Transformations.map(easyProperty) { easyProperty ->
-        "${easyProperty.investmentParameter.rate.toString().replace(".", ",")}%"
+        "${easyProperty.investmentParameter.rate.formatPercentageFromBackend()}"
     }
 
     val annualProfitabilityValue = Transformations.map(easyProperty) { easyProperty ->
-        "${easyProperty.annualNetRateProfit.toString().replace(".", ",")}%"
+        "${easyProperty.annualNetRateProfit.formatPercentageFromBackend()}"
     }
 
     val periodProfitabilityValue = Transformations.map(easyProperty) { easyProperty ->
-        "${easyProperty.annualGrossRateProfit.toString().replace(".", ",")}%"
+        "${easyProperty.annualGrossRateProfit.formatPercentageFromBackend()}"
     }
 
     //--------------------------------------------------
