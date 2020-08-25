@@ -36,6 +36,8 @@ class HomeFragment : Fragment() {
         ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
+    private var mMustFormatEditText = true
+
     //--------------------------------------------------
     // Fragment Life Cycle
     //--------------------------------------------------
@@ -140,7 +142,11 @@ class HomeFragment : Fragment() {
         investmentEditText.onFocusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
             if (!hasFocus) {
                 val text = investmentEditText.text.toString()
-                if (text.isNotEmpty()) {
+                val invalidText = text.isEmpty() || (text == ".")
+                if (invalidText) {
+                    investmentEditText.setText("")
+                    viewModel.updateInvestmentEditText(false, 0.0)
+                } else {
                     viewModel.updateStartup()
                     val valid = (text.isNotEmpty()) && (text.toDouble() > 0)
                     viewModel.updateInvestmentEditText(valid, text.toDouble())
@@ -179,20 +185,26 @@ class HomeFragment : Fragment() {
         cdiEditText.setOnEditorActionListener { view, actionId, event ->
             if (EditorInfo.IME_ACTION_DONE == actionId) {
                 cdiEditTextAction(binding)
+                mMustFormatEditText = true
             }
             false
         }
         cdiEditText.onFocusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
             if (!hasFocus) {
+                mMustFormatEditText = true
                 cdiEditTextAction(binding)
+            } else {
+                val text = cdiEditText.text.toString()
+                if (text.contains("%")) {
+                    formatCdiEditTextOutput(binding)
+                }
             }
         }
         cdiEditText.setOnClickListener {
-            val formattedText = cdiEditText.text.toString()
-                .replace("%", "")
-                .replace(" ", "")
-            cdiEditText.setText(formattedText)
-            cdiEditText.setSelection(formattedText.length)
+            val text = cdiEditText.text.toString()
+            if (text.isNotEmpty() && mMustFormatEditText) {
+                formatCdiEditTextOutput(binding)
+            }
         }
     }
 
@@ -204,13 +216,36 @@ class HomeFragment : Fragment() {
     private fun cdiEditTextAction(binding: FragmentHomeBinding) {
         val cdiEditText = binding.whatIsCdiPercentageEditText
         viewModel.updateStartup()
-        val text = cdiEditText.text.toString().replace("%", "")
-        if (text.isNotEmpty()) {
-            val valid = (text.isNotEmpty()) && (text.toDouble() > 0)
-            viewModel.updateCdiEditText(valid, text.toDouble())
-            val outputText = "$text%"
-            cdiEditText.setText(outputText)
-            cdiEditText.setSelection(outputText.length)
+        val editTextString = cdiEditText.text.toString()
+        val invalidText = editTextString.isEmpty() || (editTextString == ".")
+        if (invalidText) {
+            cdiEditText.setText("")
+            viewModel.updateCdiEditText(false, 0.0)
+        } else {
+            val text = editTextString.currencyToDouble().toString()
+            if (text.isNotEmpty()) {
+                val valid = (text.isNotEmpty()) && (text.toDouble() > 0)
+                viewModel.updateCdiEditText(valid, text.toDouble())
+                val outputText = "${text.toDouble().formatPercentage()}%"
+                updateCdiTextValue(cdiEditText, outputText)
+//                cdiEditText.setText(outputText)
+//                cdiEditText.setSelection(outputText.length)
+            }
         }
+    }
+
+    private fun formatCdiEditTextOutput(binding: FragmentHomeBinding) {
+        val cdiEditText = binding.whatIsCdiPercentageEditText
+        val text = cdiEditText.text.toString()
+        val formattedText = text.formatPercentage()
+        updateCdiTextValue(cdiEditText, formattedText)
+//        cdiEditText.setText(formattedText)
+//        cdiEditText.setSelection(formattedText.length)
+        mMustFormatEditText = false
+    }
+
+    private fun updateCdiTextValue(cdiEditText: EditText, text: String) {
+        cdiEditText.setText(text)
+        cdiEditText.setSelection(text.length)
     }
 }

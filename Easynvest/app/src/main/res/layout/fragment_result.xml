@@ -33,6 +33,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                style="@style/Marquee_TextView"
                 android:id="@+id/simulation_result__value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,7 +128,7 @@
 
                 <TextView
                     android:id="@+id/ir_value__value"
-                    style="@style/Result_ValueTextView"
+                    style="@style/Result_MarqueeValueTextView"
                     android:text="@{viewModel.formattedTaxValue}"
                     app:layout_constraintStart_toEndOf="@+id/ir_value__label"
                     app:layout_constraintTop_toBottomOf="@+id/earned_value__label"

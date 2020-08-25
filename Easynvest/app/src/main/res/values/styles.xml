@@ -44,8 +44,17 @@
         <item name="android:padding">15dp</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:background">@drawable/border_round_ripple_purple__purple_background</item>
-<!--        <item name="android:textColor">@color/white</item>-->
         <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Marquee_TextView">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
     </style>
 
     <!-- Home -->
@@ -100,5 +109,15 @@
         <item name="android:paddingRight">5dp</item>
         <item name="android:gravity">right</item>
 <!--        <item name="android:background">@color/orange_400</item>-->
+    </style>
+
+    <style name="Result_MarqueeValueTextView" parent="Marquee_TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:gravity">right</item>
+        <!--        <item name="android:background">@color/orange_400</item>-->
     </style>
 </resources>

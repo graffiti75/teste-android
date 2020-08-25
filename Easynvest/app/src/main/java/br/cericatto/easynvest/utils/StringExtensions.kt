@@ -38,6 +38,41 @@ fun String.formatMaturityDateFromBackend() : String {
     return "${b[2]}/${b[1]}/${b[0]}"
 }
 
+fun String.currencyToDouble() : Double {
+    return if (this.contains("%")) {
+        this.replace(",", ";")
+            .replace(".", "")
+            .replace(";", ".")
+            .replace("%", "")
+            .toDouble()
+    } else {
+        this.toDouble()
+    }
+}
+
+fun String.formatPercentage() : String {
+    val number = this.replace("%", "")
+        .replace(",", ";")
+        .replace(".", "")
+        .replace(";", ".")
+        .toDouble()
+    val decimal = BigDecimal(number).setScale(2, RoundingMode.HALF_EVEN)
+    val numberFormat : NumberFormat = NumberFormat.getCurrencyInstance(Locale.US)
+    val currency = numberFormat.format((decimal.toDouble()))
+    return currency.replace(",", "")
+        .replace("$", "")
+}
+
+fun Double.formatPercentage() : String {
+    val decimal = BigDecimal(this).setScale(2, RoundingMode.HALF_EVEN)
+    val numberFormat : NumberFormat = NumberFormat.getCurrencyInstance(Locale.US)
+    val currency = numberFormat.format((decimal.toDouble()))
+    return currency.replace(".", ";")
+        .replace(",", ".")
+        .replace(";", ",")
+        .replace("$", "")
+}
+
 /**
  * Example Entry:
  * "0.36"
