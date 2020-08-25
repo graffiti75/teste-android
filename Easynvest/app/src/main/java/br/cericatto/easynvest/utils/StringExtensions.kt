@@ -57,3 +57,11 @@ fun Double.doubleToCurrency(includeCurrencySign: Boolean = true) : String {
         .replace("$", "")
     return if (includeCurrencySign) "R$ $output" else "${output.replace(" ", "")}"
 }
+
+fun String.cleanCurrencyCharacters() : String {
+    return this.replace("R", "")
+        .replace("$", "")
+        .replace(".", "")
+        .replace(",", ".")
+        .replace(" ", "")
+}

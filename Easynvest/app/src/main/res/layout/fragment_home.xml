@@ -67,20 +67,11 @@
 
                     <EditText
                         android:id="@+id/investment_maturity_date__edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@null"
+                        style="@style/Home_EntryEditText"
                         android:enabled="true"
                         android:focusable="false"
-                        android:gravity="center_horizontal"
-                        android:text="@string/investment_maturity_date__hint"
-                        android:textColor="@color/grey_400"
-                        android:textSize="40sp"
+                        android:hint="@string/investment_maturity_date__hint"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/investment_maturity_date__label" />
 
                     <View
