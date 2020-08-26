@@ -49,6 +49,6 @@
 4. The package structure of this app was created by functionalities: Home, Result and Network.
 5. Since this app is small and contains only 2 screens, the use of `Dagger 2` library was considered unnecessary.
 6. This app contains Unit and Instrumented Tests.
-7. I tested the app on older devices (emulators) with smaller screens.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1. In Android KitKat (API 16, Version 4.0) I tested succesfully all the layout, but I couldn't make the Internet work.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2. In Android Lollipop (API 21, Version 5.0) I tested all the layout and the Internet connection, both succesfully.
+7. I tested the app on older devices (emulators) with smaller screens.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1. In Android KitKat (API 16, Version 4.0) I tested succesfully all the layout, but I couldn't make the Internet work.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2. In Android Lollipop (API 21, Version 5.0) I tested all the layout and the Internet connection, both succesfully.  
